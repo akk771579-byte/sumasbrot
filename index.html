@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>𝑺𝒖𝒎𝒂𝒔𝒃𝒓𝒐𝒕</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;color:#fff;background:#08080d}
+nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:#08080ddd;backdrop-filter:blur(12px);border-bottom:1px solid #ffffff18}
+.logo{font-size:25px;font-weight:800}nav a{color:#ddd;text-decoration:none;margin-left:22px}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:110px 6% 70px;background:radial-gradient(circle at 50% 20%,#5b21b633,transparent 40%)}
+.wrap{max-width:1050px;width:100%}.badge{display:inline-block;padding:8px 14px;border:1px solid #ffffff22;border-radius:999px;color:#bbb;background:#ffffff08}
+h1{font-size:clamp(55px,11vw,115px);margin:18px 0 12px;background:linear-gradient(90deg,#fff,#bca7ff,#72e6ff);color:transparent;background-clip:text;-webkit-background-clip:text}
+.hero p{color:#aaa;font-size:18px}.hero-img{width:min(900px,100%);margin:35px auto 0;border-radius:24px;display:block;border:1px solid #ffffff20;box-shadow:0 25px 80px #000}
+section{padding:85px 7%}.title{text-align:center;font-size:38px;margin:0 0 35px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1050px;margin:auto}.card{padding:25px;border:1px solid #ffffff14;background:#ffffff08;border-radius:20px}.card p{color:#aaa;line-height:1.6}
+button{border:0;cursor:pointer;color:white;font-size:16px;font-weight:700;padding:14px 22px;border-radius:14px;background:linear-gradient(135deg,#7c3aed,#2563eb);box-shadow:0 12px 35px #4c1d953d}
+.modal{display:none;position:fixed;inset:0;z-index:20;background:#000c;place-items:center;padding:25px}
+.modal.show{display:grid}.modal-box{max-width:850px;width:100%;position:relative;background:#101016;padding:12px;border-radius:22px;border:1px solid #ffffff20}
+.modal img{display:block;width:100%;max-height:80vh;object-fit:contain;border-radius:14px}
+.close{position:absolute;right:15px;top:15px;width:42px;height:42px;border-radius:50%;padding:0;background:#111c;border:1px solid #fff3}
+footer{text-align:center;padding:30px;color:#666;border-top:1px solid #ffffff12}
+@media(max-width:750px){nav div:last-child{display:none}.cards{grid-template-columns:1fr}.hero-img{border-radius:15px}}
+</style>
+</head>
+<body>
+<nav><div class="logo">𝑺𝒖𝒎𝒂𝒔𝒃𝒓𝒐𝒕</div><div><a href="#about">О сайте</a><a href="#content">Контент</a><a href="#contact">Контакты</a></div></nav>
+
+<section class="hero">
+<div class="wrap">
+<span class="badge">Добро пожаловать</span>
+<h1>𝑺𝒖𝒎𝒂𝒔𝒃𝒓𝒐𝒕</h1>
+<p>Твой стиль. Твой контент. Твоя атмосфера.</p>
+<img class="hero-img" src="hero.png" alt="Главная картинка">
+</div>
+</section>
+
+<section id="about"><h2 class="title">О сайте</h2><div class="card" style="max-width:850px;margin:auto;text-align:center"><p>Добро пожаловать на 𝑺𝒖𝒎𝒂𝒔𝒃𝒓𝒐𝒕.</p></div></section>
+
+<section id="content">
+<h2 class="title">Контент</h2>
+<div class="cards">
+<div class="card"><h3>✨ Контент</h3><p>Твои материалы и проекты.</p></div>
+<div class="card"><h3>🚀 Проекты</h3><p>Место для твоих лучших работ.</p></div>
+<div class="card"><h3>🎯 Секретная кнопка</h3><p><button id="malakhovBtn">Малахов</button></p></div>
+</div>
+</section>
+
+<section id="contact"><h2 class="title">Контакты</h2><div style="text-align:center;color:#aaa">Здесь можно разместить твои ссылки.</div></section>
+<footer>© 2026 𝑺𝒖𝒎𝒂𝒔𝒃𝒓𝒐𝒕</footer>
+
+<div class="modal" id="modal">
+<div class="modal-box"><button class="close" id="closeBtn">×</button><img src="malakhov.jpg" alt="Изображение"></div>
+</div>
+<script>
+const modal=document.getElementById('modal');
+document.getElementById('malakhovBtn').onclick=()=>modal.classList.add('show');
+document.getElementById('closeBtn').onclick=()=>modal.classList.remove('show');
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove('show')};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('show')});
+</script>
+</body>
+</html>
